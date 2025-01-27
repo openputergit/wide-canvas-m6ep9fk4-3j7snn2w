@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prakarsh 2024 | Tech Fest</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: #000016;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .starry-bg {
+            background: linear-gradient(rgba(0, 0, 22, 0.8), rgba(0, 0, 22, 0.8)),
+                        url('https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?q=80&w=3540&auto=format&fit=crop');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .event-card {
+            background: rgba(16, 16, 32, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(64, 224, 208, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(64, 224, 208, 0.8);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 10px rgba(64, 224, 208, 0.5);
+        }
+
+        .cyber-button {
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            border: none;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .cyber-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(64, 224, 208, 0.5);
+        }
+
+        .loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .planet {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        #planet1 { top: 10%; right: -100px; }
+        #planet2 { bottom: 20%; left: -150px; }
+    </style>
+</head>
+<body class="starry-bg">
+    <!-- Loading Animation -->
+    <div id="loading" class="loading">
+        <div class="animate-spin h-16 w-16 border-4 border-t-cyan-500 rounded-full"></div>
+    </div>
+
+    <!-- Decorative Planets -->
+    <img src="https://images.unsplash.com/photo-1614732414444-096e5f1122d5?w=300" class="planet" id="planet1" alt="">
+    <img src="https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?w=300" class="planet" id="planet2" alt="">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black/30 backdrop-blur-md border-b border-cyan-500/30">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="#home" class="orbitron text-2xl font-bold text-cyan-400 glow-text">PRAKARSH'24</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-cyan-400 transition-colors">Home</a>
+                    <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+                    <a href="#events" class="hover:text-cyan-400 transition-colors">Events</a>
+                    <a href="#sponsors" class="hover:text-cyan-400 transition-colors">Sponsors</a>
+                </div>
+                <button id="mobileMenuBtn" class="md:hidden text-2xl">
+                    <i class="bi bi-list"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 bg-black/95 z-40 hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="#home" class="text-xl hover:text-cyan-400 transition-colors">Home</a>
+            <a href="#about" class="text-xl hover:text-cyan-400 transition-colors">About</a>
+            <a href="#events" class="text-xl hover:text-cyan-400 transition-colors">Events</a>
+            <a href="#sponsors" class="text-xl hover:text-cyan-400 transition-colors">Sponsors</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="orbitron text-5xl md:text-7xl font-bold mb-6 glow-text">PRAKARSH 2024</h1>
+            <p class="text-xl md:text-2xl mb-8 text-cyan-300">Explore The Future of Technology</p>
+            <a href="#events" class="cyber-button px-8 py-3 rounded-lg text-lg font-semibold">Explore Events</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="orbitron text-4xl font-bold mb-12 text-center glow-text">About Us</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-lg leading-relaxed">
+                        Prakarsh is an annual technical festival that brings together the brightest minds to showcase innovation,
+                        creativity, and technical excellence. Join us for an immersive experience filled with competitions,
+                        workshops, and exciting challenges.
+                    </p>
+                </div>
+                <div class="bg-cyan-500/10 p-6 rounded-lg border border-cyan-500/30">
+                    <h3 class="text-2xl mb-4 font-bold">Event Highlights</h3>
+                    <ul class="space-y-2">
+                        <li><i class="bi bi-check2-circle text-cyan-400 mr-2"></i>Technical Competitions</li>
+                        <li><i class="bi bi-check2-circle text-cyan-400 mr-2"></i>Workshops & Seminars</li>
+                        <li><i class="bi bi-check2-circle text-cyan-400 mr-2"></i>Innovation Showcase</li>
+                        <li><i class="bi bi-check2-circle text-cyan-400 mr-2"></i>Networking Opportunities</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="orbitron text-4xl font-bold mb-12 text-center glow-text">Events</h2>
+            
+            <!-- Technical Events -->
+            <h3 class="text-2xl font-bold mb-8">Technical Events</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Event Cards will be dynamically populated -->
+            </div>
+
+            <!-- Non-Technical Events -->
+            <h3 class="text-2xl font-bold mb-8">Non-Technical Events</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Event Cards will be dynamically populated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsors Section -->
+    <section id="sponsors" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="orbitron text-4xl font-bold mb-12 text-center glow-text">Our Sponsors</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="bg-white/10 p-8 rounded-lg flex items-center justify-center">
+                    <div class="text-center">Sponsor 1</div>
+                </div>
+                <div class="bg-white/10 p-8 rounded-lg flex items-center justify-center">
+                    <div class="text-center">Sponsor 2</div>
+                </div>
+                <div class="bg-white/10 p-8 rounded-lg flex items-center justify-center">
+                    <div class="text-center">Sponsor 3</div>
+                </div>
+                <div class="bg-white/10 p-8 rounded-lg flex items-center justify-center">
+                    <div class="text-center">Sponsor 4</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Modal -->
+    <div id="eventModal" class="fixed inset-0 bg-black/90 hidden z-50">
+        <div class="container mx-auto px-4 h-full overflow-y-auto py-20">
+            <div class="max-w-3xl mx-auto bg-gray-900/80 backdrop-blur-xl p-8 rounded-xl border border-cyan-500/30">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 id="modalTitle" class="text-2xl font-bold"></h3>
+                    <button onclick="closeModal()" class="text-2xl"><i class="bi bi-x"></i></button>
+                </div>
+                <div id="modalContent"></div>
+                <div id="leaderboard" class="mt-8"></div>
+                <form id="registerForm" class="mt-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="text" placeholder="Name" class="bg-black/50 border border-cyan-500/30 rounded p-2" required>
+                        <input type="email" placeholder="Email" class="bg-black/50 border border-cyan-500/30 rounded p-2" required>
+                    </div>
+                    <button type="submit" class="cyber-button w-full mt-4 py-2 rounded">Register Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Event Data
+        const events = {
+            technical: [
+                {
+                    id: 'hackathon',
+                    title: 'Cyber Hackathon',
+                    description: '24-hour coding challenge to solve real-world problems',
+                    prize: '₹50,000',
+                    date: '2024-02-15'
+                },
+                {
+                    id: 'robotics',
+                    title: 'Robotics Challenge',
+                    description: 'Build and program robots for specific tasks',
+                    prize: '₹30,000',
+                    date: '2024-02-16'
+                },
+                {
+                    id: 'coding',
+                    title: 'Code Combat',
+                    description: 'Competitive programming contest',
+                    prize: '₹20,000',
+                    date: '2024-02-17'
+                }
+            ],
+            nonTechnical: [
+                {
+                    id: 'debate',
+                    title: 'Tech Debate',
+                    description: 'Debate on contemporary tech topics',
+                    prize: '₹15,000',
+                    date: '2024-02-15'
+                },
+                {
+                    id: 'quiz',
+                    title: 'Tech Quiz',
+                    description: 'Test your knowledge of technology',
+                    prize: '₹10,000',
+                    date: '2024-02-16'
+                },
+                {
+                    id: 'photography',
+                    title: 'Tech Photography',
+                    description: 'Capture technology in unique perspectives',
+                    prize: '₹12,000',
+                    date: '2024-02-17'
+                }
+            ]
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            renderEvents();
+            initializeMobileMenu();
+        });
+
+        // Mobile Menu
+        function initializeMobileMenu() {
+            const menuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            document.querySelectorAll('#mobileMenu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+        // Render Events
+        function renderEvents() {
+            const techContainer = document.querySelector('#events div:nth-of-type(2)');
+            const nonTechContainer = document.querySelector('#events div:nth-of-type(4)');
+
+            events.technical.forEach(event => {
+                techContainer.innerHTML += createEventCard(event);
+            });
+
+            events.nonTechnical.forEach(event => {
+                nonTechContainer.innerHTML += createEventCard(event);
+            });
+        }
+
+        function createEventCard(event) {
+            return `
+                <div class="event-card rounded-xl p-6 cursor-pointer" onclick="openEventModal('${event.id}')">
+                    <h4 class="text-xl font-bold mb-3">${event.title}</h4>
+                    <p class="mb-4 text-gray-300">${event.description}</p>
+                    <div class="flex justify-between items-center text-cyan-400">
+                        <span>Prize: ${event.prize}</span>
+                        <i class="bi bi-arrow-right"></i>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Modal Functions
+        function openEventModal(eventId) {
+            const event = [...events.technical, ...events.nonTechnical].find(e => e.id === eventId);
+            if (!event) return;
+
+            document.getElementById('eventModal').classList.remove('hidden');
+            document.getElementById('modalTitle').textContent = event.title;
+            document.getElementById('modalContent').innerHTML = `
+                <p class="mb-4">${event.description}</p>
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <div class="bg-black/30 p-4 rounded">
+                        <h4 class="font-bold">Prize Pool</h4>
+                        <p>${event.prize}</p>
+                    </div>
+                    <div class="bg-black/30 p-4 rounded">
+                        <h4 class="font-bold">Date</h4>
+                        <p>${event.date}</p>
+                    </div>
+                </div>
+            `;
+
+            // Fetch and display leaderboard
+            fetchLeaderboard(eventId);
+        }
+
+        function closeModal() {
+            document.getElementById('eventModal').classList.add('hidden');
+        }
+
+        // Database Operations
+        async function fetchLeaderboard(eventId) {
+            const loading = document.getElementById('loading');
+            loading.style.display = 'flex';
+
+            try {
+                const response = await fetch('https://r0c8kgwocscg8gsokogwwsw4.zetaverse.one/mongodb', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': 'Bearer Iojq1KJxl7ZxxvELPDf7ZByML5r1',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        appSlug: 'prakarsh-2024',
+                        action: 'read',
+                        collection: `${eventId}-participants`,
+                        conditions: {}
+                    })
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    displayLeaderboard(data.result);
+                }
+            } catch (error) {
+                console.error('Error fetching leaderboard:', error);
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+
+        function displayLeaderboard(participants) {
+            const leaderboardEl = document.getElementById('leaderboard');
+            if (!participants.length) {
+                leaderboardEl.innerHTML = '<p class="text-center">No participants yet</p>';
+                return;
+            }
+
+            leaderboardEl.innerHTML = `
+                <h4 class="text-xl font-bold mb-4">Participants</h4>
+                <div class="bg-black/30 p-4 rounded">
+                    ${participants.map(p => `
+                        <div class="flex justify-between items-center py-2 border-b border-cyan-500/20">
+                            <span>${p.name}</span>
+                            <span class="text-cyan-400">${p.score || '-'}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        // Register Form Handler
+        document.getElementById('registerForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const loading = document.getElementById('loading');
+            loading.style.display = 'flex';
+
+            try {
+                const formData = {
+                    name: this.querySelector('input[type="text"]').value,
+                    email: this.querySelector('input[type="email"]').value,
+                    timestamp: new Date().toISOString()
+                };
+
+                const response = await fetch('https://r0c8kgwocscg8gsokogwwsw4.zetaverse.one/mongodb', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': 'Bearer Iojq1KJxl7ZxxvELPDf7ZByML5r1',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        appSlug: 'prakarsh-2024',
+                        action: 'create',
+                        collection: `${currentEventId}-participants`,
+                        data: formData
+                    })
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    alert('Registration successful!');
+                    closeModal();
+                }
+            } catch (error) {
+                console.error('Error registering:', error);
+                alert('Registration failed. Please try again.');
+            } finally {
+                loading.style.display = 'none';
+            }
+        });
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
